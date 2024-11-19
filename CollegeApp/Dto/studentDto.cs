@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using CollegeApp.Validators;
+using System.ComponentModel.DataAnnotations;
 
 namespace CollegeApp.Dto
 {
@@ -12,15 +13,17 @@ namespace CollegeApp.Dto
         [EmailAddress(ErrorMessage = "Email is required")]
         public string Email { get; set; }
 
-        [Range(10,20)]
-        public int Age { get; set; }
+       // [Range(10,20)]
+      //  public int Age { get; set; }
 
         [Required]
         public string Address { get; set; }
 
-        public string Password { get; set; }
+        // public string Password { get; set; }
 
-        [Compare(nameof(Password))]
-        public string ConfirmPassword { get; set; }
+        // [Compare(nameof(Password))]
+        // public string ConfirmPassword { get; set; }
+        [DateCheck]
+        public DateTime AdmissionDate { get; set; }
     }
 }

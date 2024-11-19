@@ -48,10 +48,17 @@ namespace CollegeApp.Controllers
         [Route("create")]
         public ActionResult<studentDto> CreateStudent([FromBody]studentDto model)
         {
-            if(model == null)
+            if (model == null)
             {
                 return BadRequest();
             }
+            //This I have done by using custom validator.
+  //          if (model.AdmissionDate < DateTime.Now)
+  //          {
+  //              ModelState.AddModelError("AdmissionDate Error", "Admission Date Must be greater than or equal to the current date");
+  //              return BadRequest(ModelState);
+   //         }
+
             int newId = collegeRepository.Students.LastOrDefault().Id + 1;
             Student student = new Student
             {
